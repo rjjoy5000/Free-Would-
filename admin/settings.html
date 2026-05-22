@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Free Would Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+    <aside class="sidebar">
+        <div class="sidebar-logo"><i class="fas fa-brain" style="font-size:1.5rem;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"></i><span>Free Would</span></div>
+        <nav class="sidebar-nav">
+            <a href="index.html"><i class="fas fa-grid"></i> Dashboard</a>
+            <a href="users.html"><i class="fas fa-users"></i> Users</a>
+            <a href="api-settings.html"><i class="fas fa-key"></i> API Settings</a>
+            <a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a href="plans.html"><i class="fas fa-tags"></i> Plans</a>
+            <a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+        <div class="sidebar-user">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=7C3AED&color=fff" alt="Avatar">
+            <div class="sidebar-user-info"><div class="name">Admin</div><div class="role">Administrator</div></div>
+        </div>
+    </aside>
+    <main class="main-content">
+        <div class="content-area">
+            <div class="page-header"><h1><i class="fas fa-cog" style="color:var(--primary-light);"></i> Site Settings</h1><p>Configure your platform settings</p></div>
+            <form id="settingsForm">
+                <div class="card" style="margin-bottom:20px;">
+                    <h2 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:20px;">General Settings</h2>
+                    <div class="form-row">
+                        <div class="form-group"><label>Site Name</label><input type="text" class="form-control" id="siteName" value="Free Would"></div>
+                        <div class="form-group"><label>Site Email</label><input type="email" class="form-control" id="siteEmail" value="admin@freewould.com"></div>
+                    </div>
+                    <div class="form-group"><label>Site Description</label><textarea class="form-control" id="siteDesc" rows="2">AI Tools Platform - Text to Image, Video & Chat</textarea></div>
+                    <div class="form-group"><label>Default Credits for New Users</label><input type="number" class="form-control" id="defaultCredits" value="100"></div>
+                </div>
+                <div class="card" style="margin-bottom:20px;">
+                    <h2 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:20px;">Platform Controls</h2>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--card-border);">
+                        <div><div style="font-weight:600;color:var(--text-primary);">Maintenance Mode</div><div style="font-size:0.8rem;color:var(--text-secondary);">Disable public access to the site</div></div>
+                        <label class="toggle-switch"><input type="checkbox" id="maintenanceMode"><span class="slider"></span></label>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--card-border);">
+                        <div><div style="font-weight:600;color:var(--text-primary);">Allow Registration</div><div style="font-size:0.8rem;color:var(--text-secondary);">Allow new users to register</div></div>
+                        <label class="toggle-switch"><input type="checkbox" id="allowRegistration" checked><span class="slider"></span></label>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;">
+                        <div><div style="font-weight:600;color:var(--text-primary);">Email Verification</div><div style="font-size:0.8rem;color:var(--text-secondary);">Require email verification for new accounts</div></div>
+                        <label class="toggle-switch"><input type="checkbox" id="emailVerification"><span class="slider"></span></label>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom:20px;">
+                    <h2 style="font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:20px;">Appearance</h2>
+                    <div class="form-row">
+                        <div class="form-group"><label>Primary Color</label><div style="display:flex;gap:8px;align-items:center;"><input type="color" id="primaryColor" value="#7C3AED" style="width:50px;height:40px;border:none;cursor:pointer;"><input type="text" class="form-control" value="#7C3AED" style="flex:1;"></div></div>
+                        <div class="form-group"><label>Secondary Color</label><div style="display:flex;gap:8px;align-items:center;"><input type="color" id="secondaryColor" value="#06B6D4" style="width:50px;height:40px;border:none;cursor:pointer;"><input type="text" class="form-control" value="#06B6D4" style="flex:1;"></div></div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> Save Settings</button>
+            </form>
+        </div>
+    </main>
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

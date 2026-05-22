@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - Free Would</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span>Free Would</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-grid"></i> Dashboard</a>
+                <a href="text-to-image.html"><i class="fas fa-image"></i> Text to Image</a>
+                <a href="text-to-video.html"><i class="fas fa-video"></i> Text to Video</a>
+                <a href="chatbox.html" class="active"><i class="fas fa-comments"></i> AI Chat</a>
+                <a href="history.html"><i class="fas fa-clock-rotate-left"></i> History</a>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+            </nav>
+            <div class="sidebar-user">
+                <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar">
+                <div class="sidebar-user-info">
+                    <div class="name" id="sidebarUserName">User</div>
+                    <div class="role">Free Plan</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="credits-display">
+                        <i class="fas fa-coins"></i>
+                        <span id="creditsCount">100 Credits</span>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-toggle" onclick="toggleDropdown()">
+                            <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar" id="navAvatar">
+                            <span class="name" id="navUserName">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdown">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+                            <hr>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="page-content">
+                <div class="chat-layout">
+                    <!-- Sessions Panel -->
+                    <div class="sessions-panel" id="sessionsPanel">
+                        <div class="sessions-header">
+                            <button class="new-chat-btn" onclick="newChat()">
+                                <i class="fas fa-plus"></i> New Chat
+                            </button>
+                        </div>
+                        <div class="sessions-list" id="sessionsList">
+                            <!-- Sessions will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Chat Panel -->
+                    <div class="chat-panel">
+                        <div class="chat-header">
+                            <button class="sidebar-toggle" onclick="toggleSessions()" style="display:none;">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <h3 id="chatTitle">New Chat</h3>
+                            <div class="actions">
+                                <button onclick="renameSession()" title="Rename"><i class="fas fa-pen"></i></button>
+                                <button onclick="exportChat()" title="Export"><i class="fas fa-download"></i></button>
+                                <button onclick="deleteSession()" title="Delete"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="empty-state">
+                                <i class="fas fa-robot"></i>
+                                <h3>Start a conversation</h3>
+                                <p>Type a message below to begin chatting with AI</p>
+                            </div>
+                        </div>
+
+                        <div class="typing-indicator" id="typingIndicator">
+                            <span></span><span></span><span></span>
+                        </div>
+
+                        <div class="chat-settings">
+                            <label>
+                                Model:
+                                <select id="chatModel">
+                                    <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                    <option value="claude-3-opus">Claude 3 Opus</option>
+                                    <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+                                    <option value="gemini-pro">Gemini Pro</option>
+                                    <option value="llama3-70b">Llama 3 70B</option>
+                                    <option value="mixtral-8x7b">Mixtral 8x7B</option>
+                                </select>
+                            </label>
+                            <label>
+                                Temp: <span id="tempValue">0.7</span>
+                                <input type="range" id="chatTemp" min="0" max="2" step="0.1" value="0.7" oninput="document.getElementById('tempValue').textContent=this.value">
+                            </label>
+                            <label>
+                                Max Tokens:
+                                <input type="number" id="chatMaxTokens" value="2048" min="100" max="8000" style="width:80px;">
+                            </label>
+                        </div>
+
+                        <div class="chat-input-area">
+                            <div class="chat-input-wrapper">
+                                <textarea id="chatInput" placeholder="Type your message..." rows="1" onkeydown="handleChatKeydown(event)"></textarea>
+                                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbox.js"></script>
+</body>
+</html>

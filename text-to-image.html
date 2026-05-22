@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Image - Free Would</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span>Free Would</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-grid"></i> Dashboard</a>
+                <a href="text-to-image.html" class="active"><i class="fas fa-image"></i> Text to Image</a>
+                <a href="text-to-video.html"><i class="fas fa-video"></i> Text to Video</a>
+                <a href="chatbox.html"><i class="fas fa-comments"></i> AI Chat</a>
+                <a href="history.html"><i class="fas fa-clock-rotate-left"></i> History</a>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+            </nav>
+            <div class="sidebar-user">
+                <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar">
+                <div class="sidebar-user-info">
+                    <div class="name" id="sidebarUserName">User</div>
+                    <div class="role">Free Plan</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <nav class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="credits-display">
+                        <i class="fas fa-coins"></i>
+                        <span id="creditsCount">100 Credits</span>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-toggle" onclick="toggleDropdown()">
+                            <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar" id="navAvatar">
+                            <span class="name" id="navUserName">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdown">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+                            <hr>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1><i class="fas fa-image"></i> Text to Image</h1>
+                    <p>Generate stunning images from text descriptions using AI</p>
+                </div>
+
+                <div class="gen-layout">
+                    <!-- Left: Controls -->
+                    <div class="gen-controls">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Prompt</h2>
+                            </div>
+                            <div class="prompt-area">
+                                <textarea id="imagePrompt" placeholder="Describe the image you want to generate... e.g., A futuristic city at sunset with flying cars and neon lights"></textarea>
+                                <div class="negative-prompt">
+                                    <button class="negative-prompt-toggle" onclick="toggleNegativePrompt()">
+                                        <i class="fas fa-plus"></i> Negative Prompt (optional)
+                                    </button>
+                                    <div class="negative-prompt-content" id="negativePromptContent">
+                                        <textarea id="negativePrompt" placeholder="What to avoid... e.g., blurry, low quality, distorted"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="settings-panel">
+                                <div class="form-group">
+                                    <label>Provider</label>
+                                    <select id="imageProvider">
+                                        <option value="openai">OpenAI (DALL-E 3)</option>
+                                        <option value="stability">Stability AI</option>
+                                        <option value="replicate">Replicate</option>
+                                        <option value="custom">Custom API</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Model</label>
+                                    <select id="imageModel">
+                                        <option value="dall-e-3">DALL-E 3</option>
+                                        <option value="dall-e-2">DALL-E 2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Size</label>
+                                    <select id="imageSize">
+                                        <option value="1024x1024">1024x1024</option>
+                                        <option value="512x512">512x512</option>
+                                        <option value="1024x1792">1024x1792</option>
+                                        <option value="1792x1024">1792x1024</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Style</label>
+                                    <select id="imageStyle">
+                                        <option value="vivid">Vivid</option>
+                                        <option value="natural">Natural</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quality</label>
+                                    <select id="imageQuality">
+                                        <option value="standard">Standard</option>
+                                        <option value="hd">HD</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="generate-btn" id="generateBtn" onclick="generateImage()">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                Generate Image
+                                <span class="cost">(1 Credit)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Results -->
+                    <div class="gen-results">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Generated Images</h2>
+                            </div>
+                            <div class="generating-loader" id="generatingLoader">
+                                <div class="spinner"></div>
+                                <p>Generating your image...</p>
+                            </div>
+                            <div class="image-gallery" id="imageGallery">
+                                <div class="empty-state">
+                                    <i class="fas fa-image"></i>
+                                    <h3>No images yet</h3>
+                                    <p>Enter a prompt and click Generate to create your first image</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/image-gen.js"></script>
+</body>
+</html>

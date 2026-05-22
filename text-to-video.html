@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Video - Free Would</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span>Free Would</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-grid"></i> Dashboard</a>
+                <a href="text-to-image.html"><i class="fas fa-image"></i> Text to Image</a>
+                <a href="text-to-video.html" class="active"><i class="fas fa-video"></i> Text to Video</a>
+                <a href="chatbox.html"><i class="fas fa-comments"></i> AI Chat</a>
+                <a href="history.html"><i class="fas fa-clock-rotate-left"></i> History</a>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+            </nav>
+            <div class="sidebar-user">
+                <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar">
+                <div class="sidebar-user-info">
+                    <div class="name" id="sidebarUserName">User</div>
+                    <div class="role">Free Plan</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="credits-display">
+                        <i class="fas fa-coins"></i>
+                        <span id="creditsCount">100 Credits</span>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-toggle" onclick="toggleDropdown()">
+                            <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar" id="navAvatar">
+                            <span class="name" id="navUserName">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdown">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+                            <hr>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1><i class="fas fa-video"></i> Text to Video</h1>
+                    <p>Generate amazing videos from text descriptions using AI</p>
+                </div>
+
+                <div class="gen-layout">
+                    <div class="gen-controls">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Prompt</h2>
+                            </div>
+                            <div class="prompt-area">
+                                <textarea id="videoPrompt" placeholder="Describe the video you want to generate... e.g., A timelapse of a flower blooming in a garden"></textarea>
+                            </div>
+
+                            <div class="settings-panel">
+                                <div class="form-group">
+                                    <label>Provider</label>
+                                    <select id="videoProvider">
+                                        <option value="runway">RunwayML</option>
+                                        <option value="replicate">Replicate</option>
+                                        <option value="custom">Custom API</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <select id="videoDuration">
+                                        <option value="5">5 seconds</option>
+                                        <option value="10">10 seconds</option>
+                                        <option value="15">15 seconds</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Resolution</label>
+                                    <select id="videoResolution">
+                                        <option value="720p">720p</option>
+                                        <option value="1080p">1080p</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>FPS</label>
+                                    <select id="videoFps">
+                                        <option value="24">24 fps</option>
+                                        <option value="30">30 fps</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="generate-btn" id="generateBtn" onclick="generateVideo()">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                Generate Video
+                                <span class="cost">(10 Credits)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gen-results">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Generated Videos</h2>
+                            </div>
+                            <div class="generating-loader" id="generatingLoader">
+                                <div class="spinner"></div>
+                                <p>Generating your video... This may take a few minutes.</p>
+                                <div id="videoStatus" style="margin-top:10px;color:var(--text-secondary);font-size:0.85rem;"></div>
+                            </div>
+                            <div id="videoResults">
+                                <div class="empty-state">
+                                    <i class="fas fa-video"></i>
+                                    <h3>No videos yet</h3>
+                                    <p>Enter a prompt and click Generate to create your first video</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="margin-top:20px;">
+                            <div class="card-header">
+                                <h2>Video History</h2>
+                            </div>
+                            <div class="image-gallery" id="videoHistory">
+                                <div class="empty-state">
+                                    <i class="fas fa-clock-rotate-left"></i>
+                                    <h3>No history</h3>
+                                    <p>Your generated videos will appear here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/video-gen.js"></script>
+</body>
+</html>

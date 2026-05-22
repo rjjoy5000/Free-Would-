@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Free Would</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html">
+          <div class="logo-icon"><i class="fas fa-robot"></i></div>
+          <span class="logo-text">Free Would</span>
+        </a>
+      </div>
+      <span class="admin-badge">ADMIN</span>
+      <ul class="sidebar-nav">
+        <li><a href="index.html" class="active"><i class="fas fa-th-large"></i> Dashboard</a></li>
+        <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="api-settings.html"><i class="fas fa-key"></i> API Settings</a></li>
+        <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+        <li><a href="plans.html"><i class="fas fa-gem"></i> Plans</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+        <li class="sidebar-divider"></li>
+        <li class="back-link"><a href="../dashboard.html"><i class="fas fa-arrow-left"></i> Back to Site</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+          <h1 class="page-title">Dashboard</h1>
+        </div>
+        <div class="topbar-right">
+          <button class="notification-btn">
+            <i class="fas fa-bell"></i>
+            <span class="badge"></span>
+          </button>
+          <div class="admin-profile">
+            <div class="admin-avatar" id="admin-avatar">A</div>
+            <span class="admin-name" id="admin-name">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="admin-content">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+              <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 12%</span>
+            </div>
+            <div class="stat-value" id="total-users">0</div>
+            <div class="stat-label">Total Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon cyan"><i class="fas fa-dollar-sign"></i></div>
+              <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 8%</span>
+            </div>
+            <div class="stat-value" id="total-revenue">$0</div>
+            <div class="stat-label">Total Revenue</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon amber"><i class="fas fa-api"></i></div>
+              <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 24%</span>
+            </div>
+            <div class="stat-value" id="api-calls">0</div>
+            <div class="stat-label">API Calls Today</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <div class="stat-icon green"><i class="fas fa-credit-card"></i></div>
+              <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 5%</span>
+            </div>
+            <div class="stat-value" id="active-subs">0</div>
+            <div class="stat-label">Active Subscriptions</div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="chart-row">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3 class="chart-title">User Growth</h3>
+              <div class="filter-group">
+                <select>
+                  <option>Last 7 Days</option>
+                  <option>Last 30 Days</option>
+                  <option>Last 90 Days</option>
+                </select>
+              </div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="chart-bars">
+                <div class="chart-bar" style="height: 40%;"><span class="bar-label">Mon</span><span class="bar-value">45</span></div>
+                <div class="chart-bar" style="height: 65%;"><span class="bar-label">Tue</span><span class="bar-value">72</span></div>
+                <div class="chart-bar" style="height: 50%;"><span class="bar-label">Wed</span><span class="bar-value">58</span></div>
+                <div class="chart-bar" style="height: 80%;"><span class="bar-label">Thu</span><span class="bar-value">91</span></div>
+                <div class="chart-bar" style="height: 70%;"><span class="bar-label">Fri</span><span class="bar-value">80</span></div>
+                <div class="chart-bar" style="height: 55%;"><span class="bar-label">Sat</span><span class="bar-value">63</span></div>
+                <div class="chart-bar" style="height: 90%;"><span class="bar-label">Sun</span><span class="bar-value">104</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3 class="chart-title">Revenue</h3>
+            </div>
+            <div class="chart-placeholder">
+              <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 36px; font-weight: 800; color: var(--success); margin-bottom: 5px;">$12,450</div>
+                <div style="font-size: 14px; color: var(--text-secondary);">This Month</div>
+                <div style="margin-top: 20px; font-size: 20px; font-weight: 700; color: var(--text-primary);">$148,200</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Total Revenue</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Users Table -->
+        <div class="data-table-container">
+          <div class="data-table-header">
+            <h3 class="table-title">Recent Registrations</h3>
+            <a href="users.html" class="btn-add" style="text-decoration: none; font-size: 13px; padding: 8px 14px;">View All <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+              </tr>
+            </thead>
+            <tbody id="recent-users-body">
+              <tr>
+                <td colspan="4" style="text-align: center; color: var(--text-secondary); padding: 30px;">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- System Status -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <h3 class="chart-title">System Status</h3>
+          </div>
+          <div class="status-grid">
+            <div class="status-item">
+              <span class="status-dot online"></span>
+              <span class="status-text">API Server</span>
+            </div>
+            <div class="status-item">
+              <span class="status-dot online"></span>
+              <span class="status-text">Database</span>
+            </div>
+            <div class="status-item">
+              <span class="status-dot online"></span>
+              <span class="status-text">File Storage</span>
+            </div>
+            <div class="status-item">
+              <span class="status-dot online"></span>
+              <span class="status-text">Email Service</span>
+            </div>
+            <div class="status-item">
+              <span class="status-dot online"></span>
+              <span class="status-text">OpenAI API</span>
+            </div>
+            <div class="status-item">
+              <span class="status-dot online"></span>
+              <span class="status-text">Stability AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

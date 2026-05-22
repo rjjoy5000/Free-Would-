@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Settings - Free Would Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar admin-sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-shield-halved"></i>
+                <span>Admin Panel</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html"><i class="fas fa-grid"></i> Dashboard</a>
+                <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                <a href="api-settings.html" class="active"><i class="fas fa-key"></i> API Settings</a>
+                <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="plans.html"><i class="fas fa-tags"></i> Plans</a>
+                <a href="settings.html"><i class="fas fa-gear"></i> Settings</a>
+                <hr style="border-color:var(--card-border);margin:10px 15px;">
+                <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Site</a>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <nav class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <h2 style="color:var(--text-primary);font-size:1.1rem;">API Settings</h2>
+                </div>
+            </nav>
+
+            <div class="page-content">
+                <!-- Provider Tabs -->
+                <div class="filter-tabs" style="margin-bottom:20px;background:var(--dark-bg);border-radius:10px;padding:4px;display:inline-flex;">
+                    <button class="filter-tab active" onclick="showProvider('openai', this)">OpenAI</button>
+                    <button class="filter-tab" onclick="showProvider('stability', this)">Stability AI</button>
+                    <button class="filter-tab" onclick="showProvider('anthropic', this)">Anthropic</button>
+                    <button class="filter-tab" onclick="showProvider('gemini', this)">Gemini</button>
+                    <button class="filter-tab" onclick="showProvider('groq', this)">Groq</button>
+                    <button class="filter-tab" onclick="showProvider('replicate', this)">Replicate</button>
+                    <button class="filter-tab" onclick="showProvider('runway', this)">Runway</button>
+                    <button class="filter-tab" onclick="showProvider('custom', this)">Custom</button>
+                </div>
+
+                <!-- OpenAI Settings -->
+                <div class="provider-settings" id="provider-openai">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-brain" style="color:var(--success);margin-right:8px;"></i> OpenAI Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="openai-active" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <div style="display:flex;gap:10px;">
+                                    <input type="password" id="openai-key" placeholder="sk-..." style="flex:1;">
+                                    <button onclick="toggleKeyVisibility('openai-key')" style="background:var(--card-bg);border:1px solid var(--card-border);color:var(--text-primary);padding:8px 12px;border-radius:8px;cursor:pointer;"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Image Model</label>
+                                <select id="openai-image-model">
+                                    <option value="dall-e-3">DALL-E 3</option>
+                                    <option value="dall-e-2">DALL-E 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Chat Model</label>
+                                <select id="openai-chat-model">
+                                    <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                                    <option value="gpt-4">GPT-4</option>
+                                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="openai-endpoint" value="https://api.openai.com/v1">
+                            </div>
+                            <div class="form-group">
+                                <label>Rate Limit (per min)</label>
+                                <input type="number" id="openai-rate" value="60">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('openai')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('openai')"><i class="fas fa-plug"></i> Test Connection</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stability AI Settings -->
+                <div class="provider-settings" id="provider-stability" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-palette" style="color:var(--accent);margin-right:8px;"></i> Stability AI Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="stability-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <input type="password" id="stability-key" placeholder="sk-...">
+                            </div>
+                            <div class="form-group">
+                                <label>Model</label>
+                                <select id="stability-model">
+                                    <option value="stable-diffusion-xl-1024-v1-0">SDXL 1.0</option>
+                                    <option value="stable-diffusion-v1-6">SD 1.6</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="stability-endpoint" value="https://api.stability.ai/v1">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('stability')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('stability')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anthropic Settings -->
+                <div class="provider-settings" id="provider-anthropic" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-robot" style="color:var(--primary-light);margin-right:8px;"></i> Anthropic Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="anthropic-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <input type="password" id="anthropic-key" placeholder="sk-ant-...">
+                            </div>
+                            <div class="form-group">
+                                <label>Model</label>
+                                <select id="anthropic-model">
+                                    <option value="claude-3-opus-20240229">Claude 3 Opus</option>
+                                    <option value="claude-3-sonnet-20240229">Claude 3 Sonnet</option>
+                                    <option value="claude-3-haiku-20240307">Claude 3 Haiku</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="anthropic-endpoint" value="https://api.anthropic.com/v1">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('anthropic')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('anthropic')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gemini Settings -->
+                <div class="provider-settings" id="provider-gemini" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-star" style="color:var(--warning);margin-right:8px;"></i> Google Gemini Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="gemini-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <input type="password" id="gemini-key" placeholder="AIza...">
+                            </div>
+                            <div class="form-group">
+                                <label>Model</label>
+                                <select id="gemini-model">
+                                    <option value="gemini-pro">Gemini Pro</option>
+                                    <option value="gemini-pro-vision">Gemini Pro Vision</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="gemini-endpoint" value="https://generativelanguage.googleapis.com/v1">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('gemini')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('gemini')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Groq Settings -->
+                <div class="provider-settings" id="provider-groq" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-bolt" style="color:var(--accent);margin-right:8px;"></i> Groq Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="groq-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <input type="password" id="groq-key" placeholder="gsk_...">
+                            </div>
+                            <div class="form-group">
+                                <label>Model</label>
+                                <select id="groq-model">
+                                    <option value="llama3-70b-8192">Llama 3 70B</option>
+                                    <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+                                    <option value="llama3-8b-8192">Llama 3 8B</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="groq-endpoint" value="https://api.groq.com/openai/v1">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('groq')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('groq')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Replicate Settings -->
+                <div class="provider-settings" id="provider-replicate" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-rotate" style="color:var(--secondary);margin-right:8px;"></i> Replicate Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="replicate-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Token</label>
+                                <input type="password" id="replicate-key" placeholder="r8_...">
+                            </div>
+                            <div class="form-group">
+                                <label>Model Version</label>
+                                <input type="text" id="replicate-model" placeholder="stability-ai/sdxl">
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="replicate-endpoint" value="https://api.replicate.com/v1">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('replicate')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('replicate')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Runway Settings -->
+                <div class="provider-settings" id="provider-runway" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-film" style="color:var(--danger);margin-right:8px;"></i> RunwayML Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="runway-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <input type="password" id="runway-key" placeholder="key_...">
+                            </div>
+                            <div class="form-group">
+                                <label>Model</label>
+                                <select id="runway-model">
+                                    <option value="gen-2">Gen-2</option>
+                                    <option value="gen-1">Gen-1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Endpoint</label>
+                                <input type="text" id="runway-endpoint" value="https://api.runwayml.com/v1">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('runway')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('runway')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Settings -->
+                <div class="provider-settings" id="provider-custom" style="display:none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-plug" style="color:var(--text-secondary);margin-right:8px;"></i> Custom API Configuration</h2>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <span style="font-size:0.8rem;color:var(--text-secondary);">Active</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="custom-active">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-panel">
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>API Key</label>
+                                <input type="password" id="custom-key" placeholder="Your API key">
+                            </div>
+                            <div class="form-group">
+                                <label>Provider Name</label>
+                                <input type="text" id="custom-name" placeholder="My Custom Provider">
+                            </div>
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select id="custom-type">
+                                    <option value="image">Image</option>
+                                    <option value="video">Video</option>
+                                    <option value="chat">Chat</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>Endpoint URL</label>
+                                <input type="text" id="custom-endpoint" placeholder="https://api.example.com/v1/generate">
+                            </div>
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>Request Template (JSON)</label>
+                                <textarea id="custom-template" style="width:100%;min-height:100px;background:var(--dark-bg);border:1px solid var(--card-border);border-radius:8px;padding:10px;color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.85rem;resize:vertical;" placeholder='{"prompt": "{{prompt}}", "model": "{{model}}"}'></textarea>
+                            </div>
+                            <div class="form-group" style="grid-column:1/-1;">
+                                <label>Response Image Field (JSON path)</label>
+                                <input type="text" id="custom-response-field" placeholder="data.images[0].url">
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:15px;">
+                            <button class="btn-save" onclick="saveProvider('custom')"><i class="fas fa-save"></i> Save</button>
+                            <button class="btn-save" style="background:var(--secondary);" onclick="testApi('custom')"><i class="fas fa-plug"></i> Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Free Would</title>
+    <meta name="description" content="Get in touch with the Free Would team.">
+    <link rel="canonical" href="https://freewould.com/contact">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo"><i class="fas fa-robot"></i><span>Free Would</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height:50vh;padding-top:120px;">
+        <div class="container" style="text-align:center;">
+            <span class="hero-badge"><i class="fas fa-envelope"></i> Contact</span>
+            <h1 class="gradient-text" style="font-size:3rem;margin-bottom:1rem;">Get In Touch</h1>
+            <p style="color:var(--text-secondary);max-width:600px;margin:0 auto;">Have questions, feedback, or need help? We would love to hear from you.</p>
+        </div>
+    </section>
+
+    <section style="padding:60px 0;">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;">
+                <div class="glass" style="padding:40px;border-radius:16px;">
+                    <h3 style="color:var(--text-primary);margin-bottom:25px;">Send a Message</h3>
+                    <form id="contactForm">
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block;color:var(--text-secondary);margin-bottom:8px;font-size:0.9rem;">Name</label>
+                            <input type="text" name="name" required style="width:100%;padding:12px 16px;background:var(--dark-bg);border:1px solid var(--card-border);border-radius:8px;color:var(--text-primary);font-family:Poppins,sans-serif;font-size:0.95rem;outline:none;" placeholder="Your name">
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block;color:var(--text-secondary);margin-bottom:8px;font-size:0.9rem;">Email</label>
+                            <input type="email" name="email" required style="width:100%;padding:12px 16px;background:var(--dark-bg);border:1px solid var(--card-border);border-radius:8px;color:var(--text-primary);font-family:Poppins,sans-serif;font-size:0.95rem;outline:none;" placeholder="you@example.com">
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block;color:var(--text-secondary);margin-bottom:8px;font-size:0.9rem;">Subject</label>
+                            <input type="text" name="subject" required style="width:100%;padding:12px 16px;background:var(--dark-bg);border:1px solid var(--card-border);border-radius:8px;color:var(--text-primary);font-family:Poppins,sans-serif;font-size:0.95rem;outline:none;" placeholder="How can we help?">
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block;color:var(--text-secondary);margin-bottom:8px;font-size:0.9rem;">Message</label>
+                            <textarea name="message" rows="5" required style="width:100%;padding:12px 16px;background:var(--dark-bg);border:1px solid var(--card-border);border-radius:8px;color:var(--text-primary);font-family:Poppins,sans-serif;font-size:0.95rem;outline:none;resize:vertical;" placeholder="Tell us more..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        <div id="contactMsg" style="margin-top:15px;text-align:center;display:none;"></div>
+                    </form>
+                </div>
+                <div>
+                    <div class="glass" style="padding:30px;border-radius:16px;margin-bottom:20px;">
+                        <div style="display:flex;align-items:center;gap:15px;margin-bottom:20px;">
+                            <div style="width:50px;height:50px;border-radius:12px;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-envelope" style="color:white;font-size:1.2rem;"></i></div>
+                            <div><h4 style="color:var(--text-primary);margin-bottom:3px;">Email</h4><p style="color:var(--text-secondary);font-size:0.9rem;">support@freewould.com</p></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:15px;margin-bottom:20px;">
+                            <div style="width:50px;height:50px;border-radius:12px;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-phone" style="color:white;font-size:1.2rem;"></i></div>
+                            <div><h4 style="color:var(--text-primary);margin-bottom:3px;">Phone</h4><p style="color:var(--text-secondary);font-size:0.9rem;">+1 (555) 123-4567</p></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:15px;">
+                            <div style="width:50px;height:50px;border-radius:12px;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-map-marker-alt" style="color:white;font-size:1.2rem;"></i></div>
+                            <div><h4 style="color:var(--text-primary);margin-bottom:3px;">Address</h4><p style="color:var(--text-secondary);font-size:0.9rem;">123 AI Street, Tech City, TC 12345</p></div>
+                        </div>
+                    </div>
+                    <div class="glass" style="padding:30px;border-radius:16px;">
+                        <h4 style="color:var(--text-primary);margin-bottom:15px;">Follow Us</h4>
+                        <div style="display:flex;gap:12px;">
+                            <a href="#" style="width:45px;height:45px;border-radius:10px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);font-size:1.1rem;transition:all 0.3s;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="width:45px;height:45px;border-radius:10px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);font-size:1.1rem;transition:all 0.3s;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="width:45px;height:45px;border-radius:10px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);font-size:1.1rem;transition:all 0.3s;"><i class="fab fa-discord"></i></a>
+                            <a href="#" style="width:45px;height:45px;border-radius:10px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);font-size:1.1rem;transition:all 0.3s;"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><a href="index.html" class="footer-logo"><i class="fas fa-robot"></i> Free Would</a><p style="color:var(--text-secondary);">AI-powered platform for generating images, videos, and intelligent conversations.</p><div class="social-links"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-discord"></i></a><a href="#"><i class="fab fa-github"></i></a></div></div>
+                <div class="footer-col"><h4>Product</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="#">API</a></li><li><a href="#">Updates</a></li></ul></div>
+                <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
+                <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookies</a></li><li><a href="#">GDPR</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Free Would. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('contactMsg');
+            msg.style.display = 'block';
+            msg.style.color = 'var(--success)';
+            msg.textContent = 'Thank you! Your message has been sent.';
+            this.reset();
+            setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        });
+    </script>
+</body>
+</html>

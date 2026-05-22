@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - Free Would</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span>Free Would</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-grid"></i> Dashboard</a>
+                <a href="text-to-image.html"><i class="fas fa-image"></i> Text to Image</a>
+                <a href="text-to-video.html"><i class="fas fa-video"></i> Text to Video</a>
+                <a href="chatbox.html"><i class="fas fa-comments"></i> AI Chat</a>
+                <a href="history.html" class="active"><i class="fas fa-clock-rotate-left"></i> History</a>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+            </nav>
+            <div class="sidebar-user">
+                <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar">
+                <div class="sidebar-user-info">
+                    <div class="name" id="sidebarUserName">User</div>
+                    <div class="role">Free Plan</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search history..." id="historySearch">
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="credits-display">
+                        <i class="fas fa-coins"></i>
+                        <span id="creditsCount">100 Credits</span>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-toggle" onclick="toggleDropdown()">
+                            <img src="https://ui-avatars.com/api/?name=User&background=7C3AED&color=fff" alt="Avatar" id="navAvatar">
+                            <span class="name" id="navUserName">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdown">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="billing.html"><i class="fas fa-credit-card"></i> Billing</a>
+                            <hr>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1><i class="fas fa-clock-rotate-left"></i> Generation History</h1>
+                    <p>View all your generated images, videos, and chats</p>
+                </div>
+
+                <div class="history-filters">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" onclick="filterHistory('all', this)">All</button>
+                        <button class="filter-tab" onclick="filterHistory('image', this)">Images</button>
+                        <button class="filter-tab" onclick="filterHistory('video', this)">Videos</button>
+                        <button class="filter-tab" onclick="filterHistory('chat', this)">Chats</button>
+                    </div>
+                    <input type="date" id="dateFilter" style="background:var(--dark-bg);border:1px solid var(--card-border);border-radius:8px;padding:8px 12px;color:var(--text-primary);font-family:'Poppins',sans-serif;font-size:0.85rem;">
+                    <div class="view-toggle">
+                        <button class="active" onclick="setView('grid', this)" title="Grid View"><i class="fas fa-grid"></i></button>
+                        <button onclick="setView('list', this)" title="List View"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+
+                <div class="history-grid" id="historyGrid">
+                    <div class="empty-state">
+                        <i class="fas fa-clock-rotate-left"></i>
+                        <h3>No history yet</h3>
+                        <p>Your generated content will appear here</p>
+                    </div>
+                </div>
+
+                <div class="pagination" id="pagination" style="display:none;">
+                    <button onclick="loadPrev()"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button onclick="loadNext()"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

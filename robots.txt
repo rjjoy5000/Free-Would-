@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /backend/
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /billing
+Disallow: /history
+Disallow: /assets/js/
+Disallow: /database/
+
+Sitemap: https://freewould.com/sitemap.xml

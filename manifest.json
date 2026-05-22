@@ -1,0 +1,20 @@
+{
+    "name": "Free Would",
+    "short_name": "FreeWould",
+    "description": "AI Tools Platform - Generate images, videos, and chat with AI",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0F0F1A",
+    "theme_color": "#7C3AED",
+    "orientation": "portrait-primary",
+    "categories": ["productivity", "utilities"],
+    "icons": [
+        {"src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+        {"src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+    ],
+    "shortcuts": [
+        {"name": "Text to Image", "url": "/text-to-image"},
+        {"name": "Text to Video", "url": "/text-to-video"},
+        {"name": "AI Chat", "url": "/chatbox"}
+    ]
+}

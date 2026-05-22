@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Would - AI Tools Platform | Create Anything With AI</title>
+    <meta name="description" content="Free Would is a powerful AI platform for generating images, videos, and chatting with advanced AI models. Start creating for free today.">
+    <meta name="keywords" content="AI tools, text to image, text to video, AI chat, image generator, video generator">
+    <meta property="og:title" content="Free Would - AI Tools Platform">
+    <meta property="og:description" content="Create stunning images, videos, and chat with AI. Powered by leading models.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://freewould.com">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon"><i class="fas fa-brain"></i></div>
+            <span class="logo-text">Free <span class="gradient-text">Would</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#features" class="nav-link">Features</a></li>
+            <li><a href="#pricing" class="nav-link">Pricing</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <canvas id="particles"></canvas>
+    <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="container hero-content">
+        <div class="hero-badge">✨ AI Powered Platform</div>
+        <h1 class="hero-title">Create Anything<br><span class="gradient-text">With The Power of AI</span></h1>
+        <p class="hero-subtitle"><span id="typing-text"></span><span class="cursor">|</span></p>
+        <p class="hero-desc">Generate stunning images, create amazing videos, and chat with the world's most advanced AI models — all in one platform.</p>
+        <div class="hero-buttons">
+            <a href="register.html" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Start Creating Free</a>
+            <a href="#" class="btn btn-outline btn-lg"><i class="fas fa-play"></i> Watch Demo</a>
+        </div>
+        <div class="hero-cards">
+            <div class="hero-card hero-card-1">
+                <div class="hero-card-icon"><i class="fas fa-image"></i></div>
+                <span>Text to Image</span>
+            </div>
+            <div class="hero-card hero-card-2">
+                <div class="hero-card-icon"><i class="fas fa-video"></i></div>
+                <span>Text to Video</span>
+            </div>
+            <div class="hero-card hero-card-3">
+                <div class="hero-card-icon"><i class="fas fa-comments"></i></div>
+                <span>AI Chat</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <a href="#features"><i class="fas fa-chevron-down"></i></a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Everything You <span class="gradient-text">Need</span></h2>
+            <p class="section-subtitle">Powerful AI tools at your fingertips. Create, generate, and chat with cutting-edge models.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card glass" data-aos="fade-up">
+                <div class="feature-icon gradient-bg"><i class="fas fa-palette"></i></div>
+                <h3>Text to Image</h3>
+                <p>Transform your words into stunning visual art using state-of-the-art AI image generators.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Multiple AI providers</li>
+                    <li><i class="fas fa-check"></i> HD &amp; 4K quality output</li>
+                    <li><i class="fas fa-check"></i> Various styles &amp; ratios</li>
+                    <li><i class="fas fa-check"></i> Negative prompt support</li>
+                    <li><i class="fas fa-check"></i> Instant download &amp; history</li>
+                </ul>
+                <a href="text-to-image.html" class="btn btn-outline btn-sm">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card glass" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon gradient-bg"><i class="fas fa-film"></i></div>
+                <h3>Text to Video</h3>
+                <p>Bring your imagination to life with AI-powered video generation from text descriptions.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> RunwayML, Pika &amp; more</li>
+                    <li><i class="fas fa-check"></i> Up to 15 second clips</li>
+                    <li><i class="fas fa-check"></i> 720p &amp; 1080p resolution</li>
+                    <li><i class="fas fa-check"></i> Async with progress</li>
+                    <li><i class="fas fa-check"></i> Download &amp; share</li>
+                </ul>
+                <a href="text-to-video.html" class="btn btn-outline btn-sm">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card glass" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon gradient-bg"><i class="fas fa-robot"></i></div>
+                <h3>AI ChatBot</h3>
+                <p>Chat with the most advanced AI models including GPT-4, Claude, Gemini, and more.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> GPT-4, Claude 3, Gemini</li>
+                    <li><i class="fas fa-check"></i> Streaming responses</li>
+                    <li><i class="fas fa-check"></i> Session management</li>
+                    <li><i class="fas fa-check"></i> Markdown formatting</li>
+                    <li><i class="fas fa-check"></i> Export conversations</li>
+                </ul>
+                <a href="chatbox.html" class="btn btn-outline btn-sm">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works" id="how-it-works">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+            <p class="section-subtitle">Get started in three simple steps</p>
+        </div>
+        <div class="steps-container">
+            <div class="step" data-aos="fade-up">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+                <h3>Sign Up Free</h3>
+                <p>Create your free account in seconds. No credit card required. Get 100 credits instantly.</p>
+            </div>
+            <div class="step-connector"><div class="connector-line"></div></div>
+            <div class="step" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-keyboard"></i></div>
+                <h3>Enter Your Prompt</h3>
+                <p>Describe what you want to create. Write a detailed prompt for the best results.</p>
+            </div>
+            <div class="step-connector"><div class="connector-line"></div></div>
+            <div class="step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-magic"></i></div>
+                <h3>Get Your Result</h3>
+                <p>AI generates your content in seconds. Download, share, or refine as needed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="section stats" id="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card glass" data-aos="fade-up">
+                <div class="stat-number" data-count="50000">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card glass" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number" data-count="1000000">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Images Created</div>
+            </div>
+            <div class="stat-card glass" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number" data-count="50000">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Videos Generated</div>
+            </div>
+            <div class="stat-card glass" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number" data-count="5000000">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">AI Chats</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI MODELS -->
+<section class="section ai-models" id="models">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Powered By <span class="gradient-text">Leading AI</span></h2>
+            <p class="section-subtitle">We integrate with the best AI providers in the world</p>
+        </div>
+    </div>
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <div class="model-logo"><span>OpenAI</span></div>
+                <div class="model-logo"><span>Stability AI</span></div>
+                <div class="model-logo"><span>Anthropic</span></div>
+                <div class="model-logo"><span>Google Gemini</span></div>
+                <div class="model-logo"><span>Groq</span></div>
+                <div class="model-logo"><span>Mistral</span></div>
+                <div class="model-logo"><span>RunwayML</span></div>
+                <div class="model-logo"><span>Replicate</span></div>
+                <div class="model-logo"><span>HuggingFace</span></div>
+                <div class="model-logo"><span>OpenAI</span></div>
+                <div class="model-logo"><span>Stability AI</span></div>
+                <div class="model-logo"><span>Anthropic</span></div>
+                <div class="model-logo"><span>Google Gemini</span></div>
+                <div class="model-logo"><span>Groq</span></div>
+                <div class="model-logo"><span>Mistral</span></div>
+                <div class="model-logo"><span>RunwayML</span></div>
+                <div class="model-logo"><span>Replicate</span></div>
+                <div class="model-logo"><span>HuggingFace</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Simple <span class="gradient-text">Pricing</span></h2>
+            <p class="section-subtitle">Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+        </div>
+        <div class="pricing-toggle" data-aos="fade-up">
+            <span class="toggle-label active" id="monthlyLabel">Monthly</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="pricingToggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label" id="yearlyLabel">Yearly <span class="badge-save">Save 20%</span></span>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card glass" data-aos="fade-up">
+                <div class="plan-name">Free</div>
+                <div class="plan-price"><span class="currency">$</span><span class="amount" data-monthly="0" data-yearly="0">0</span><span class="period">/month</span></div>
+                <p class="plan-desc">Perfect for getting started</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> 100 Credits/month</li>
+                    <li><i class="fas fa-check"></i> 10 Images/month</li>
+                    <li><i class="fas fa-check"></i> 2 Videos/month</li>
+                    <li><i class="fas fa-check"></i> 100 Chats/month</li>
+                    <li><i class="fas fa-check"></i> Standard Quality</li>
+                    <li><i class="fas fa-check"></i> Basic Models</li>
+                </ul>
+                <a href="register.html" class="btn btn-outline btn-block">Get Started Free</a>
+            </div>
+            <div class="pricing-card glass popular" data-aos="fade-up" data-aos-delay="100">
+                <div class="popular-badge">Most Popular</div>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price"><span class="currency">$</span><span class="amount" data-monthly="19.99" data-yearly="15.99">19.99</span><span class="period">/month</span></div>
+                <p class="plan-desc">For creators and professionals</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> 1,000 Credits/month</li>
+                    <li><i class="fas fa-check"></i> 100 Images/month</li>
+                    <li><i class="fas fa-check"></i> 20 Videos/month</li>
+                    <li><i class="fas fa-check"></i> Unlimited Chats</li>
+                    <li><i class="fas fa-check"></i> HD Quality</li>
+                    <li><i class="fas fa-check"></i> All Models</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                </ul>
+                <a href="register.html" class="btn btn-primary btn-block">Get Pro Now</a>
+            </div>
+            <div class="pricing-card glass" data-aos="fade-up" data-aos-delay="200">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price"><span class="currency">$</span><span class="amount" data-monthly="49.99" data-yearly="39.99">49.99</span><span class="period">/month</span></div>
+                <p class="plan-desc">For teams and businesses</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> 5,000 Credits/month</li>
+                    <li><i class="fas fa-check"></i> Unlimited Images</li>
+                    <li><i class="fas fa-check"></i> Unlimited Videos</li>
+                    <li><i class="fas fa-check"></i> Unlimited Chats</li>
+                    <li><i class="fas fa-check"></i> 4K Quality</li>
+                    <li><i class="fas fa-check"></i> All Models</li>
+                    <li><i class="fas fa-check"></i> 24/7 Support</li>
+                    <li><i class="fas fa-check"></i> API Access</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline btn-block">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="testimonials">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">What Users <span class="gradient-text">Say</span></h2>
+            <p class="section-subtitle">Trusted by thousands of creators worldwide</p>
+        </div>
+        <div class="testimonial-slider" data-aos="fade-up">
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-card glass">
+                    <div class="testimonial-avatar"><div class="avatar-circle">SK</div></div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Free Would has completely changed my creative workflow. I generate product mockups in seconds instead of hours!"</p>
+                    <div class="testimonial-info"><strong>Sarah K.</strong><span>Product Designer</span></div>
+                </div>
+                <div class="testimonial-card glass">
+                    <div class="testimonial-avatar"><div class="avatar-circle">MR</div></div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"The AI chat feature is like having a genius assistant available 24/7. GPT-4 and Claude integration is incredible."</p>
+                    <div class="testimonial-info"><strong>Mike R.</strong><span>Content Creator</span></div>
+                </div>
+                <div class="testimonial-card glass">
+                    <div class="testimonial-avatar"><div class="avatar-circle">AL</div></div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="testimonial-text">"Video generation from text is mind-blowing. I create social media content in minutes. The free plan is very generous."</p>
+                    <div class="testimonial-info"><strong>Amanda L.</strong><span>Social Media Manager</span></div>
+                </div>
+                <div class="testimonial-card glass">
+                    <div class="testimonial-avatar"><div class="avatar-circle">JD</div></div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"As a developer, the API access and multiple model support is exactly what I needed. Clean interface, fair pricing."</p>
+                    <div class="testimonial-info"><strong>James D.</strong><span>Software Engineer</span></div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="testimonial-btn prev" id="testimonialPrev"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots" id="testimonialDots"></div>
+                <button class="testimonial-btn next" id="testimonialNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <p class="section-subtitle">Find answers to common questions about Free Would</p>
+        </div>
+        <div class="faq-container" data-aos="fade-up">
+            <div class="faq-item glass">
+                <button class="faq-question"><span>What is Free Would?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>Free Would is an all-in-one AI platform that lets you generate images from text, create videos from descriptions, and chat with advanced AI models like GPT-4, Claude, and Gemini.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>How many free credits do I get?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>Every new user receives 100 free credits upon registration. Images cost 1 credit each, videos cost 10 credits, and chat messages use tokens. Credits refresh monthly on the free plan.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>Which AI models are supported?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>We support OpenAI DALL-E 3 & GPT-4, Stability AI SDXL, Anthropic Claude 3, Google Gemini Pro, Groq, Mistral, RunwayML Gen-2, Replicate, HuggingFace, and more.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>Can I download generated content?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>Yes! All generated images and videos can be downloaded in high quality. Images in PNG format, videos in MP4. You retain full rights to use your content commercially.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>How does billing work?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>We offer monthly and yearly billing. You can upgrade, downgrade, or cancel anytime. Yearly plans save 20%. We accept all major credit cards and PayPal. No hidden fees.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>Is my data secure?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>Absolutely. We use AES-256 encryption for all API keys and sensitive data. Your prompts and generated content are private and never shared. We comply with GDPR.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>Can I cancel anytime?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>Yes, cancel your subscription anytime from account settings. Access continues until end of billing period. No cancellation fees or penalties.</p></div>
+            </div>
+            <div class="faq-item glass">
+                <button class="faq-question"><span>Do you offer refunds?</span><i class="fas fa-plus"></i></button>
+                <div class="faq-answer"><p>We offer a 7-day money-back guarantee for new subscriptions. Contact support within 7 days for a full refund.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" id="cta">
+    <div class="cta-bg-shapes">
+        <div class="cta-shape cta-shape-1"></div>
+        <div class="cta-shape cta-shape-2"></div>
+    </div>
+    <div class="container">
+        <div class="cta-content" data-aos="fade-up">
+            <h2 class="cta-title">Ready to Start <span class="gradient-text">Creating?</span></h2>
+            <p class="cta-subtitle">Join thousands of creators using Free Would to bring their ideas to life with AI.</p>
+            <a href="register.html" class="btn btn-white btn-lg"><i class="fas fa-rocket"></i> Sign Up Free</a>
+            <p class="cta-note">Free 100 credits &bull; No credit card required &bull; Cancel anytime</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-gradient-border"></div>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo">
+                    <div class="logo-icon"><i class="fas fa-brain"></i></div>
+                    <span class="logo-text">Free <span class="gradient-text">Would</span></span>
+                </a>
+                <p class="footer-desc">Empowering creativity with cutting-edge AI tools. Generate images, videos, and chat with advanced AI models.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Updates</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Free Would. All rights reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-stripe"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
